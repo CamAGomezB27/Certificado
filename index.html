@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Certificado</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Formulario de Certificado</h1>
+        <form id="certificadoForm">
+            <label for="anoModelo">AÑO:</label>
+            <input type="text" id="anoModelo" name="anoModelo" required>
+            
+            <label for="modelo">MODELO:</label>
+            <input type="text" id="modelo" name="modelo" required>
+            
+            <label for="numeroMotor">NÚMERO DE MOTOR:</label>
+            <input type="text" id="numeroMotor" name="numeroMotor" required>
+            
+            <label for="vin">VIN:</label>
+            <input type="text" id="codigoModelo" name="codigoModelo" required>
+
+            <button type="button" id="generateBtn" disabled>Generar Certificado</button>
+        </form>
+    </div>
+
+    <!-- Cargar la librería PDFLib antes de tu script.js -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+    <!-- Cargar la librería XLSX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+
+    <!-- Cargar la librería jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Tu archivo de JS -->
+    <script src="script.js"></script>
+</body>
+</html>
