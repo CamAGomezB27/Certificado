@@ -8,8 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const modelo = document.getElementById('modelo').value.trim();
         const numeroMotor = document.getElementById('numeroMotor').value.trim();
         const vin = document.getElementById('codigoModelo').value.trim();
+        const tiempos = document.getElementById('tiemposMotor').value.trim();
         
-        if (anoModelo && modelo && numeroMotor && vin) {
+        if (anoModelo && modelo && numeroMotor && vin && tiempos) {
             generateBtn.disabled = false;  // Habilita el botón si todos los campos están completos
         } else {
             generateBtn.disabled = true;   // Deshabilita el botón si falta algún campo
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const modelo = document.getElementById('modelo').value.trim();
         const numeroMotor = document.getElementById('numeroMotor').value.trim();
         const vin = document.getElementById('codigoModelo').value.trim();
+        const tiempos = document.getElementById('tiemposMotor').value.trim();
 
         if (isVinValid(vin)) {
             // Si el VIN es válido, procedemos a generar el PDF
@@ -61,20 +63,20 @@ document.addEventListener('DOMContentLoaded', function () {
                                 cilindraje: { x: 120, y: 580 },   // Ajustada para el espacio adecuado
                                 vin: { x: 120, y: 560 },           // Ajustada para el espacio adecuado
                                 numeroMotor: {x: 120, y: 540 },       // Ajustada para el espacio adecuado
-                                numeroTiempos: {x: 120, y: 520 }      // Ajustada para el espacio adecuado 
+                                tiempos: {x: 120, y: 520 }      // Ajustada para el espacio adecuado 
                             };
 
                             // Crear la tabla con la información
                             const tableHeaders = ['', ''];
                             const tableData = [
-                                ['Marca', 'MARCA'],
+                                ['Marca', modelo],
                                 ['Clase', 'TIPO DE VEHICULO'],
-                                ['Nombre del modelo', modelo],
+                                ['Nombre del modelo', 'Nombre del modelo'],
                                 ['Año Modelo', anoModelo],
                                 ['Cilindraje', 'CILINDRADA(cc)'],
                                 ['VIN o Serial', vin],
                                 ['Número de Motor', numeroMotor],
-                                ['Número de Tiempos', 'Número de Tiempos']
+                                ['Número de Tiempos', tiempos]
                             ];
 
                             const rowHeight = 20;  // Alto de cada fila
