@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Función para verificar si el VIN es válido
     function isVinValid(vin) {
-        return vin && /^[A-Za-z0-9]+$/.test(vin) && vin.length > 7;
+        return vin && /^[A-Za-z0-9]+$/.test(vin) && vin.length >= 8;  // Validación VIN: al menos 8 caracteres alfanuméricos
     }
 
     generateBtn.addEventListener('click', async function () {
@@ -52,17 +52,17 @@ document.addEventListener('DOMContentLoaded', function () {
                         .then(font => {
                             const page = pdfDoc.getPages()[0];
 
-                            // Definir las posiciones para escribir los datos en el PDF
+                            // Definir las posiciones ajustadas para escribir los datos en el PDF
                             const positions = {
-                                vin: { x: 50, y: 500 },
-                                marca: { x: 50, y: 480 },
-                                clase: { x: 50, y: 460 },
-                                nombreModelo: { x: 50, y: 440 },
-                                anoModelo: { x: 50, y: 420 },
-                                cilindraje: { x: 50, y: 400 }
+                                marca: { x: 220, y: 580 },        // Ajustada para el espacio adecuado
+                                clase: { x: 220, y: 560 },        // Ajustada para el espacio adecuado
+                                nombreModelo: { x: 220, y: 540 }, // Ajustada para el espacio adecuado
+                                anoModelo: { x: 220, y: 520 },    // Ajustada para el espacio adecuado
+                                cilindraje: { x: 220, y: 500 },   // Ajustada para el espacio adecuado
+                                vin: { x: 220, y: 480 }           // Ajustada para el espacio adecuado
                             };
 
-                            // Estos datos se escriben en el PDF
+                            // Escribir los datos en el PDF en las posiciones especificadas
                             page.drawText(`Marca: MARCA`, { x: positions.marca.x, y: positions.marca.y, font, size: 12 });
                             page.drawText(`Clase: TIPO DE VEHICULO`, { x: positions.clase.x, y: positions.clase.y, font, size: 12 });
                             page.drawText(`Nombre del modelo: ${modelo}`, { x: positions.nombreModelo.x, y: positions.nombreModelo.y, font, size: 12 });
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const blob = new Blob([pdfBytesModified], { type: 'application/pdf' });
                     const link = document.createElement('a');
                     link.href = URL.createObjectURL(blob);
-                    link.download = `certificado_${vin}.pdf`;
+                    link.download = `certificado_${vin}.pdf`;  // Descarga el archivo con el nombre correcto
                     link.click();
                 })
                 .catch(error => {
