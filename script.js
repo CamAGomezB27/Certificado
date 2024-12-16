@@ -54,21 +54,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
                             // Definir las posiciones ajustadas para escribir los datos en el PDF
                             const positions = {
-                                marca: { x: 220, y: 580 },        // Ajustada para el espacio adecuado
-                                clase: { x: 220, y: 560 },        // Ajustada para el espacio adecuado
-                                nombreModelo: { x: 220, y: 540 }, // Ajustada para el espacio adecuado
-                                anoModelo: { x: 220, y: 520 },    // Ajustada para el espacio adecuado
-                                cilindraje: { x: 220, y: 500 },   // Ajustada para el espacio adecuado
-                                vin: { x: 220, y: 480 }           // Ajustada para el espacio adecuado
+                                marca: { x: 120, y: 660 },        // Ajustada para el espacio adecuado
+                                clase: { x: 120, y: 640 },        // Ajustada para el espacio adecuado
+                                nombreModelo: { x: 120, y: 620 }, // Ajustada para el espacio adecuado
+                                anoModelo: { x: 120, y: 600 },    // Ajustada para el espacio adecuado
+                                cilindraje: { x: 120, y: 580 },   // Ajustada para el espacio adecuado
+                                vin: { x: 120, y: 560 },           // Ajustada para el espacio adecuado
+                                numeroMotor: {x: 120, y: 540 },       // Ajustada para el espacio adecuado
+                                numeroTiempos: {x: 120, y: 520 }      // Ajustada para el espacio adecuado 
                             };
 
-                            // Escribir los datos en el PDF en las posiciones especificadas
-                            page.drawText(`Marca: MARCA`, { x: positions.marca.x, y: positions.marca.y, font, size: 12 });
-                            page.drawText(`Clase: TIPO DE VEHICULO`, { x: positions.clase.x, y: positions.clase.y, font, size: 12 });
-                            page.drawText(`Nombre del modelo: ${modelo}`, { x: positions.nombreModelo.x, y: positions.nombreModelo.y, font, size: 12 });
-                            page.drawText(`Año Modelo: ${anoModelo}`, { x: positions.anoModelo.x, y: positions.anoModelo.y, font, size: 12 });
-                            page.drawText(`Cilindraje: CILINDRADA(cc)`, { x: positions.cilindraje.x, y: positions.cilindraje.y, font, size: 12 });
-                            page.drawText(`VIN o Serial: ${vin}`, { x: positions.vin.x, y: positions.vin.y, font, size: 12 });
+                            // Crear la tabla con la información
+                            const tableHeaders = ['', ''];
+                            const tableData = [
+                                ['Marca', 'MARCA'],
+                                ['Clase', 'TIPO DE VEHICULO'],
+                                ['Nombre del modelo', modelo],
+                                ['Año Modelo', anoModelo],
+                                ['Cilindraje', 'CILINDRADA(cc)'],
+                                ['VIN o Serial', vin],
+                                ['Número de Motor', numeroMotor],
+                                ['Número de Tiempos', 'Número de Tiempos']
+                            ];
+
+                            const rowHeight = 20;  // Alto de cada fila
+                            const columnWidth = 200;  // Ancho de cada columna
+                            const startX = positions.marca.x; // Comenzamos desde la posición definida
+                            let startY = positions.marca.y - 20;  // Deja espacio antes de la tabla
+
+                            // Escribir encabezados de la tabla
+                            page.drawText(tableHeaders[0], { x: startX, y: startY, font, size: 12, lineHeight: rowHeight });
+                            page.drawText(tableHeaders[1], { x: startX + columnWidth, y: startY, font, size: 12, lineHeight: rowHeight });
+
+                            startY -= rowHeight;  // Mover hacia abajo para las filas de la tabla
+
+                            // Escribir las filas de la tabla
+                            tableData.forEach(row => {
+                                page.drawText(row[0], { x: startX, y: startY, font, size: 12, lineHeight: rowHeight });
+                                page.drawText(row[1], { x: startX + columnWidth, y: startY, font, size: 12, lineHeight: rowHeight });
+                                startY -= rowHeight;  // Mover hacia abajo para la siguiente fila
+                            });
 
                             // Guardar el documento y descargarlo
                             return pdfDoc.save();
