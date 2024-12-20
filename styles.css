@@ -6,6 +6,8 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    background-image: url('8d76e55d2bf8d0f7757b72e891dc1735.jpg'); /* Ruta de la imagen */
+    background-position: center center; /* Centra la imagen */
 }
 
 /* Contenedor principal */
