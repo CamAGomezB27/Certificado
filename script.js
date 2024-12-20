@@ -28,12 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Función para habilitar el botón de generar certificado cuando todos los campos son completados
     function checkFormCompletion() {
         const anoModelo = document.getElementById('anoModelo').value.trim();
-        const modelo = document.getElementById('modelo').value.trim();
         const numeroMotor = document.getElementById('numeroMotor').value.trim();
         const vin = document.getElementById('codigoModelo').value.trim();
-        const tiempos = document.getElementById('tiemposMotor').value.trim();
 
-        if (anoModelo && modelo && numeroMotor && vin && tiempos) {
+        if (anoModelo && numeroMotor && vin) {
             generateBtn.disabled = false;  // Habilita el botón si todos los campos están completos
         } else {
             generateBtn.disabled = true;   // Deshabilita el botón si falta algún campo
@@ -87,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (rowVin === vinSubstr) {
                 console.log('Datos encontrados para el VIN:', vinSubstr);
                 return {
+                    MARCA: row[0], //MARCA
                     TIPODEVEHICULO: row[1],  // TIPO DE VEHÍCULO
                     NOMBREMODELO: row[4],    // NOMBRE MODELO
                     CILINDRADA: row[8],      // CILINDRADA (cc)
@@ -102,16 +101,14 @@ document.addEventListener('DOMContentLoaded', function () {
     generateBtn.addEventListener('click', async function () {
         // Obtener todos los valores del formulario
         const anoModelo = document.getElementById('anoModelo').value.trim();
-        const modelo = document.getElementById('modelo').value.trim();
         const numeroMotor = document.getElementById('numeroMotor').value.trim();
         const vin = document.getElementById('codigoModelo').value.trim();
-        const tiempos = document.getElementById('tiemposMotor').value.trim();
 
         if (isVinValid(vin)) {
             // Obtener los datos del Excel basados en el VIN
             const vehicleData = await getVehicleDataFromExcel(vin);
             if (vehicleData) {
-                const { TIPODEVEHICULO, NOMBREMODELO, CILINDRADA } = vehicleData;
+                const { MARCA, TIPODEVEHICULO, NOMBREMODELO, CILINDRADA } = vehicleData;
 
                 // Si el VIN es válido y se encontraron los datos, procedemos a generar el PDF
 
@@ -135,14 +132,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
                                 // Definir las posiciones ajustadas para escribir los datos en el PDF
                                 const positions = {
-                                    marca: { x: 120, y: 660 },
-                                    TIPODEVEHICULO: { x: 120, y: 640 },
-                                    NOMBREMODELO: { x: 120, y: 620 },
-                                    anoModelo: { x: 120, y: 600 },
-                                    CILINDRADA: { x: 120, y: 580 },
-                                    vin: { x: 120, y: 560 },
-                                    numeroMotor: { x: 120, y: 540 },
-                                    tiempos: { x: 120, y: 520 }
+                                    MARCA: { x: 150, y: 680 },
+                                    TIPODEVEHICULO: { x: 150, y: 660 },
+                                    NOMBREMODELO: { x: 150, y: 640 },
+                                    anoModelo: { x: 150, y: 620 },
+                                    CILINDRADA: { x: 150, y: 600 },
+                                    vin: { x: 150, y: 580 },
+                                    numeroMotor: { x: 150, y: 560 },
+                                    tiempos: { x: 150, y: 540 }
                                 };
 
                                 // Tamaño de fuente
@@ -151,20 +148,20 @@ document.addEventListener('DOMContentLoaded', function () {
                                 // Crear la tabla con la información
                             const tableHeaders = ['', ''];
                             const tableData = [
-                                ['Marca', String(modelo)],
+                                ['Marca', String(MARCA)],
                                 ['Clase', String(TIPODEVEHICULO)],
                                 ['Nombre del modelo', String(NOMBREMODELO)],
                                 ['Año Modelo', String(anoModelo)],
                                 ['Cilindraje', String(CILINDRADA)],
                                 ['VIN o Serial', String(vin)],
                                 ['Número de Motor', String(numeroMotor)],
-                                ['Número de Tiempos', String(tiempos)]
+                                ['Número de Tiempos', String("Cuatro (4)")]
                             ];
 
-                            const rowHeight = 20;  // Alto de cada fila
-                            const columnWidth = 200;  // Ancho de cada columna
-                            const startX = positions.marca.x; // Comenzamos desde la posición definida
-                            let startY = positions.marca.y - 20;  // Deja espacio antes de la tabla
+                            const rowHeight = 18;  // Alto de cada fila
+                            const columnWidth = 170;  // Ancho de cada columna
+                            const startX = positions.MARCA.x; // Comenzamos desde la posición definida
+                            let startY = positions.MARCA.y - 0;  // Deja espacio antes de la tabla
 
                             // Escribir encabezados de la tabla
                             page.drawText(tableHeaders[0], { x: startX, y: startY, font, size: 12, lineHeight: rowHeight });
