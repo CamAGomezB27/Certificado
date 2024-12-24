@@ -5,6 +5,8 @@
 # Ignorar archivos de datos sensibles
 base_datos.xlsx
 certificado_template.docx
+=======
+
 
 # Ignorar minificados y archivos generados automáticamente
 *.min.js
