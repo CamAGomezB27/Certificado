@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     const pdfUrl = URL.createObjectURL(pdfBlob);
                                     const link = document.createElement('a');
                                     link.href = pdfUrl;
-                                    link.download = 'certificado.pdf';
+                                    link.download = 'CERTIFICADO DE CUMPLIMIENTO DE LOS LIMITES MAX DE EMISIONES.pdf';
                                     link.click();
                                 });
                             });
