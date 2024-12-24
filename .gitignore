@@ -1,0 +1,12 @@
+# Archivos y carpetas específicas
+/node_modules/
+/dist/
+.env
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de IDE
+.vscode/
+.idea/

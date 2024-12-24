@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 ['Número de Tiempos', String("Cuatro (4)")]
                             ];
 
-                            const rowHeight = 18;  // Alto de cada fila
+                            const rowHeight = 17.5;  // Alto de cada fila
                             const columnWidth = 170;  // Ancho de cada columna
                             const startX = positions.MARCA.x; // Comenzamos desde la posición definida
                             let startY = positions.MARCA.y - 0;  // Deja espacio antes de la tabla
