@@ -1,12 +1,25 @@
-# Archivos y carpetas específicas
-/node_modules/
-/dist/
+# Ignorar archivos de configuración local
 .env
+*.log
 
-# Archivos del sistema operativo
-.DS_Store
-Thumbs.db
+# Ignorar archivos de datos sensibles
+base_datos.xlsx
 
-# Archivos de configuración de IDE
+# Ignorar minificados y archivos generados automáticamente
+*.min.js
+*.min.css
+
+# Ignorar dependencias (si usas Node.js)
+node_modules/
+
+# Ignorar directorios específicos
+dist/
+build/
+
+# Ignorar configuraciones de IDEs
 .vscode/
 .idea/
+
+# Ignorar caché del sistema
+*.cache
+*.tmp
