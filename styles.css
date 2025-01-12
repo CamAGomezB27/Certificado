@@ -39,6 +39,46 @@ body {
     position: relative; /* Relativo para usar absolute en el botón */
 }
 
+/* Estilo para el contenedor de la imagen */
+#image-container {
+    margin: 70px auto;
+    display: none; /* Comienza oculto */
+    position: absolute; /* Colocamos la imagen fuera del formulario */
+    right: 20px;
+    top: 20px;
+    width: 420px; /* Ajusta el tamaño de la imagen */
+    background-color: #fff;
+    border: 2px solid #666161;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    border-top: 5px solid #1e2a47; /* Azul BMW */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#generated-image {
+    max-width: 420px;
+    height: 500px;
+}
+
+/* Botón de cierre de la imagen */
+#close-image {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    background-color: #1e2a47;
+    border: 2px solid #000000;
+    color: white;
+    font-size: 18px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#close-image:hover {
+    background-color: #1e2a47;
+}
+
 /* Ajuste para que el botón esté en la misma línea */
 .informativo p {
     display: flex;

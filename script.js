@@ -2,6 +2,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('certificadoForm');
     const anoModeloInput = document.getElementById('anoModelo');
     const generateBtn = document.getElementById('generateBtn');
+    const infoButton = document.querySelector('.informacion-btn'); // El botón con el ícono ℹ️
+    const imageContainer = document.getElementById('image-container');
+    const generatedImage = document.getElementById('generated-image');
+    const closeImageBtn = document.getElementById('close-image');
+
+    // Función para generar la imagen y mostrarla
+    infoButton.addEventListener('click', function() {
+        // Aquí se generaría la imagen, en este caso pondremos una imagen estática como ejemplo
+        generatedImage.src = 'AYUDA_VIN.jpg'; // Aquí puedes poner la URL de la imagen generada
+        imageContainer.style.display = 'block'; // Mostrar el contenedor con la imagen
+    });
+
+    // Función para cerrar la imagen
+    closeImageBtn.addEventListener('click', function() {
+        imageContainer.style.display = 'none'; // Ocultar el contenedor
+    });
 
     // Variable para almacenar las referencias de VIN extraídas del archivo Excel
     let excelReferences = [];
