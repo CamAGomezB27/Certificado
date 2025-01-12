@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('certificadoForm');
+    const anoModeloInput = document.getElementById('anoModelo');
     const generateBtn = document.getElementById('generateBtn');
 
     // Variable para almacenar las referencias de VIN extraídas del archivo Excel
@@ -40,6 +41,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Escuchar cambios en el formulario para habilitar/deshabilitar el botón
     form.addEventListener('input', checkFormCompletion);
+
+    // Validación del año modelo
+    anoModeloInput.addEventListener('input', function () {
+        const anoModelo = parseInt(anoModeloInput.value.trim(), 10);
+        const currentYear = new Date().getFullYear();
+
+        if (anoModelo < currentYear - 2 || anoModelo > currentYear) {
+            anoModeloInput.setCustomValidity(`Por favor ingrese un año entre ${currentYear - 2} y ${currentYear}.`);
+        } else {
+            anoModeloInput.setCustomValidity('');
+        }
+
+        anoModeloInput.reportValidity();
+    });
 
     // Función para verificar si el VIN es válido según las posiciones 3-7 y su comparación con las referencias de Excel
     function isVinValid(vin) {
