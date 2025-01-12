@@ -94,7 +94,7 @@ body {
 
 /* Para el botón de información */
 .informacion-btn {
-    background-color: #052344; /* Azul brillante */
+    background-color: #1e2a47; /* Azul brillante */
     color: white;
     font-size: 25px; /* Ajustar tamaño */
     width: 25px; /* Tamaño fijo */
@@ -113,7 +113,7 @@ body {
 }
 
 .informacion-btn:hover {
-    background-color: #052344; /* Azul más oscuro */
+    background-color: #1e2a47; /* Azul más oscuro */
     transform: scale(1.1);
 }
 
@@ -124,6 +124,86 @@ body {
 
 .info-icon {
     font-size: 15px; /* Tamaño del ícono */
+}
+
+/* Estilo para el botón de chatbot */
+#chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1e2a47;
+    color: white;
+    font-size: 25px;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#chatbot-button:hover {
+    background-color: #1e2a47;
+    transform: scale(1.1);
+}
+
+/* Estilo para el contenedor del chat */
+#chatbot-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #fff;
+    width: 300px;
+    height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Estilo para la cabecera del chat */
+#chat-header {
+    background-color: #1e2a47;
+    color: white;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+}
+
+#chat-header h3 {
+    margin: 0;
+}
+
+#close-chat {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Estilo para el cuerpo del chat */
+#chat-body {
+    padding: 15px;
+    flex-grow: 1;
+    overflow-y: auto;
+    font-size: 15px;
+}
+
+#chat-body p {
+    margin: 0 0 10px;
+}
+
+/* Mostrar el chat cuando se abre */
+#chatbot-container.show {
+    display: flex;
 }
 
 /* Encabezados */

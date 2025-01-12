@@ -6,6 +6,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const imageContainer = document.getElementById('image-container');
     const generatedImage = document.getElementById('generated-image');
     const closeImageBtn = document.getElementById('close-image');
+    const chatbotButton = document.getElementById('chatbot-button');
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const closeChatButton = document.getElementById('close-chat');
+
+    // Abrir el chat cuando se presiona el botón
+chatbotButton.addEventListener('click', () => {
+    chatbotContainer.classList.add('show');
+});
+
+// Cerrar el chat cuando se presiona el botón "X"
+closeChatButton.addEventListener('click', () => {
+    chatbotContainer.classList.remove('show');
+});
 
     // Función para generar la imagen y mostrarla
     infoButton.addEventListener('click', function() {

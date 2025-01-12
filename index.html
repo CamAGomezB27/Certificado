@@ -35,7 +35,6 @@
             <label for="numeroMotor">NÚMERO DE MOTOR:</label>
             <input type="text" id="numeroMotor" name="numeroMotor" placeholder="Ingresa número de motor" required>
             
-            
             <button type="button" id="generateBtn" disabled>GENERAR CERTIFICADO</button>
         </form>
 
@@ -46,6 +45,19 @@
         <button id="close-image"> X </button>
         <img id="generated-image" src="" alt="Generated Image">
     </div>
+
+    <button id="chatbot-button">💬</button>
+    <!-- Contenedor del chat -->
+    <div id="chatbot-container">
+        <div id="chat-header">
+            <h3>Chat Ayuda</h3>
+            <button id="close-chat">X</button>
+        </div>
+        <div id="chat-body">
+            <p>Aca esta el Manual de instrucciones...</p>
+        </div>
+    </div>
+
 
     <!-- Cargar la librería PDFLib antes de tu script.js -->
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
