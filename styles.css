@@ -25,6 +25,67 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilo para el cuadro informativo */
+.informativo {
+    background-color: #f9f9f9; /* Fondo suave */
+    color: #000000;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #666161; /* Borde suave */
+    font-size: 14px;
+    margin-bottom: 20px; /* Espacio antes del formulario */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    position: relative; /* Relativo para usar absolute en el botón */
+}
+
+/* Ajuste para que el botón esté en la misma línea */
+.informativo p {
+    display: flex;
+    align-items: center; /* Alinea el texto y el botón */
+    gap: 2x; /* Espacio entre el texto y el botón */
+}
+
+/* Aseguramos que el contenedor del botón no rompa la línea */
+.btn-container {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Para el botón de información */
+.informacion-btn {
+    background-color: #052344; /* Azul brillante */
+    color: white;
+    font-size: 25px; /* Ajustar tamaño */
+    width: 25px; /* Tamaño fijo */
+    height: 25px; /* Tamaño fijo */
+    border-radius: 50%; /* Hacerlo circular */
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    position: absolute; /* Posicionarlo de forma absoluta */
+    bottom: 10px; /* Ubicarlo en la parte inferior */
+    right: 10px; /* Ubicarlo en la parte derecha */
+}
+
+.informacion-btn:hover {
+    background-color: #052344; /* Azul más oscuro */
+    transform: scale(1.1);
+}
+
+.informacion-btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(1, 31, 63, 0.6);
+}
+
+.info-icon {
+    font-size: 15px; /* Tamaño del ícono */
+}
+
 /* Encabezados */
 h1 {
     text-align: center;
