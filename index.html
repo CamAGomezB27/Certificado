@@ -10,15 +10,17 @@
     <div class="container">
         <h1>Formulario de Certificado</h1>
         <form id="certificadoForm">
+
+            <label for="codigoModelo">VIN:</label>
+            <input type="text" id="codigoModelo" name="codigoModelo" placeholder="Ingresa vin completo" maxlength="17" required>
+            
             <label for="anoModelo">AÑO MODELO:</label>
-            <input type="text" id="anoModelo" name="anoModelo" placeholder="Ingresa año" required>
+            <input type="text" id="anoModelo" name="anoModelo" placeholder="Ingresa año" maxlength="4" required>
             
             <label for="numeroMotor">NÚMERO DE MOTOR:</label>
             <input type="text" id="numeroMotor" name="numeroMotor" placeholder="Ingresa número de referencia" required>
             
-            <label for="codigoModelo">VIN:</label>
-            <input type="text" id="codigoModelo" name="codigoModelo" placeholder="Ingresa vin completo" required>
-
+            
             <button type="button" id="generateBtn" disabled>GENERAR CERTIFICADO</button>
         </form>
     </div>
