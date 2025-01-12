@@ -26,24 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Llamar a la función para cargar las referencias cuando la página se carga
     loadExcelReferences();
 
-    // Función para habilitar el botón de generar certificado cuando todos los campos son completados
-    function checkFormCompletion() {
-        const anoModelo = document.getElementById('anoModelo').value.trim();
-        const numeroMotor = document.getElementById('numeroMotor').value.trim();
-        const vin = document.getElementById('codigoModelo').value.trim();
-
-        if (anoModelo && numeroMotor && vin) {
-            generateBtn.disabled = false;  // Habilita el botón si todos los campos están completos
-        } else {
-            generateBtn.disabled = true;   // Deshabilita el botón si falta algún campo
-        }
-    }
-
-    // Escuchar cambios en el formulario para habilitar/deshabilitar el botón
-    form.addEventListener('input', checkFormCompletion);
-
-    // Validación del año modelo
+    // Evento para validar la entrada del año modelo y permitir solo números
     anoModeloInput.addEventListener('input', function () {
+        // Reemplazar cualquier carácter que no sea un número
+        this.value = this.value.replace(/[^0-9]/g, '');
+    // Validación del año modelo
         const anoModelo = parseInt(anoModeloInput.value.trim(), 10);
         const currentYear = new Date().getFullYear();
 
@@ -55,6 +42,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
         anoModeloInput.reportValidity();
     });
+
+    // Función para habilitar el botón de generar certificado cuando todos los campos son completados
+    function checkFormCompletion() {
+        const anoModelo = document.getElementById('anoModelo').value.trim();
+        const currentYear = new Date().getFullYear();
+        const numeroMotor = document.getElementById('numeroMotor').value.trim();
+        const vin = document.getElementById('codigoModelo').value.trim();
+
+        if (numeroMotor && vin && anoModelo >= currentYear - 2 && anoModelo <= currentYear) {
+            generateBtn.disabled = false;  // Habilita el botón si todos los campos están completos  
+            
+        } else {
+            generateBtn.disabled = true;   // Deshabilita el botón si falta algún campo
+        }
+    }
+
+    // Escuchar cambios en el formulario para habilitar/deshabilitar el botón
+    form.addEventListener('input', checkFormCompletion);
 
     // Función para verificar si el VIN es válido según las posiciones 3-7 y su comparación con las referencias de Excel
     function isVinValid(vin) {
