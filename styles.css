@@ -180,8 +180,8 @@ body {
     bottom: 80px;
     right: 20px;
     background-color: #fff;
-    width: 300px;
-    height: 200px;
+    width: 310px;
+    height: 185px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     display: none; /* Oculto por defecto */
@@ -227,6 +227,25 @@ body {
 /* Mostrar el chat cuando se abre */
 #chatbot-container.show {
     display: flex;
+}
+
+/* Estilo para el botón de descarga PDF */
+#download-pdf-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #1e2a47;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#download-pdf-button:hover {
+    background-color: #003366; /* Azul más oscuro */
+    transform: scale(1.05);
 }
 
 /* Encabezados */

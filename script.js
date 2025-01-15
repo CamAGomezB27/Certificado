@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('certificadoForm');
     const anoModeloInput = document.getElementById('anoModelo');
     const generateBtn = document.getElementById('generateBtn');
+    const generateBtn2 = document.getElementById('download-pdf-button')
     const infoButton = document.querySelector('.informacion-btn'); // El botón con el ícono ℹ️
     const imageContainer = document.getElementById('image-container');
     const generatedImage = document.getElementById('generated-image');
@@ -19,6 +20,20 @@ chatbotButton.addEventListener('click', () => {
 closeChatButton.addEventListener('click', () => {
     chatbotContainer.classList.remove('show');
 });
+
+// Ruta del archivo PDF local
+const pdfFilePath = 'PROCEDIMIENTO_GENERACIÓN_CERTIFICADOS_DE_CUMPLIMIENTO_M_A.pdf'; // Modifica esta ruta según la ubicación real del archivo
+
+// Añadir el evento al botón
+generateBtn2.addEventListener('click', function() {
+  // Crear un enlace invisible
+  const link = document.createElement('a');
+  link.href = pdfFilePath;  // Ruta al archivo PDF
+  link.download = 'PROCEDIMIENTO_GENERACIÓN_CERTIFICADOS_DE_CUMPLIMIENTO_M_A.pdf'; // Nombre con el que se descargará el archivo
+  // Simular un clic en el enlace para iniciar la descarga
+  link.click();
+});
+
 
     // Función para generar la imagen y mostrarla
     infoButton.addEventListener('click', function() {
